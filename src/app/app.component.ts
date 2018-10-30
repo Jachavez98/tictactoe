@@ -8,6 +8,8 @@ import { HomePage } from "../pages/home/home";
 import { LoginPage } from "../pages/login/login";
 import { LocalWeatherPage } from "../pages/local-weather/local-weather";
 import { TripsPage } from "../pages/trips/trips";
+import { PesoPage } from "../pages/peso/peso";
+import { ImcPage } from "../pages/imc/imc";
 
 export interface MenuItem {
     title: string;
@@ -23,9 +25,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = LoginPage;
-
   appMenuItems: Array<MenuItem>;
-
   constructor(
     public platform: Platform,
     public statusBar: StatusBar,
@@ -33,11 +33,10 @@ export class MyApp {
     public keyboard: Keyboard
   ) {
     this.initializeApp();
-
     this.appMenuItems = [
       {title: 'Inicio', component: HomePage, icon: 'home'},
-      {title: 'Seguimiento de mi peso', component: LocalWeatherPage, icon: 'partly-sunny'},
-      {title: 'Calculo de mi IMC ideal', component: LocalWeatherPage, icon: 'partly-sunny'},
+      {title: 'Seguimiento de mi peso', component: PesoPage, icon: 'partly-sunny'},
+      {title: 'Calculo de mi IMC ideal', component: ImcPage, icon: 'partly-sunny'},
       {title: 'Mis dietas', component: TripsPage, icon: 'partly-sunny'},
       {title: 'Clima local', component: LocalWeatherPage, icon: 'partly-sunny'}
     ];
