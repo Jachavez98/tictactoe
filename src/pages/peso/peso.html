@@ -17,5 +17,23 @@
 </ion-header>
 
 <ion-content padding>
+<h1>Añadir Pesaje</h1>
+<ion-item>
+  <button ion-button color="primary" (click)="newItem()">
+    <ion-icon name="md-add"></ion-icon>
+  </button>
+</ion-item>
 
-</ion-content>
+
+
+
+  <h1>Pesos generados</h1>
+  <ion-list>
+<ion-item  *ngFor="let item of todo | async" >
+  <ion-card>
+      {{ item.peso }}
+      {{ item.fecha}}
+  </ion-card>
+</ion-item>
+  </ion-list>
+  </ion-content>

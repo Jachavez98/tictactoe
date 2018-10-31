@@ -26,6 +26,7 @@ import {TripsPage} from "../pages/trips/trips";
 import {LocalWeatherPage} from "../pages/local-weather/local-weather";
 import {PesoPage} from "../pages/peso/peso";
 import {ImcPage} from "../pages/imc/imc";
+import {AngularFirestoreModule} from 'angularfire2/firestore';
 // import services
 // end import services
 // end import services
@@ -65,6 +66,7 @@ import {ImcPage} from "../pages/imc/imc";
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    AngularFirestoreModule,
     IonicModule.forRoot(MyApp, {
       scrollPadding: false,
       scrollAssist: true,
