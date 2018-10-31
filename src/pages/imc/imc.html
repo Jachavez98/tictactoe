@@ -11,13 +11,26 @@
             <ion-icon name="menu"></ion-icon>
         </button>
         <ion-title>
-        <strong>Calculo de mi IMC ideal</strong>
+        <strong>Calculo de mi IMC</strong>
       </ion-title>
     </ion-navbar>
 </ion-header>
-
-
-
 <ion-content padding>
-
+<ion-item>
+        <ion-label floating>
+          Ingresa tu altura en centimetros
+        </ion-label>
+        <ion-input type="number" [(ngModel)]="altura"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>
+          Ingresa tu peso en kilogramos
+        </ion-label>
+        <ion-input type="number" [(ngModel)]="peso"></ion-input>
+      </ion-item>
+       <div margin-top>
+      <button ion-button block color="dark" tappable (click)="calcularimc()">
+        Calcular mi IMC
+      </button>
+    </div>
 </ion-content>
