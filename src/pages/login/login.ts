@@ -1,15 +1,29 @@
-import {Component} from "@angular/core";
-import {NavController, AlertController, ToastController, MenuController} from "ionic-angular";
-import {HomePage} from "../home/home";
-import {RegisterPage} from "../register/register";
+import { Component } from "@angular/core";
+import {
+  NavController,
+  AlertController,
+  ToastController,
+  MenuController
+} from "ionic-angular";
+import { HomePage } from "../home/home";
+import { RegisterPage } from "../register/register";
+import { User } from './../../models/user';
+import { AngularFireAuth } from "@angular/fire/auth";
 
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html'
+  selector: "page-login",
+  templateUrl: "login.html"
 })
 export class LoginPage {
-
-  constructor(public nav: NavController, public forgotCtrl: AlertController, public menu: MenuController, public toastCtrl: ToastController) {
+  user = {} as User;
+  constructor(
+    public alertCtrl: AlertController,
+    private afAuth: AngularFireAuth,
+    public nav: NavController,
+    public forgotCtrl: AlertController,
+    public menu: MenuController,
+    public toastCtrl: ToastController
+  ) {
     this.menu.swipeEnable(false);
   }
 
@@ -19,46 +33,31 @@ export class LoginPage {
   }
 
   // login and go to home page
-  login() {
-    this.nav.setRoot(HomePage);
+  async login(user: User) {
+    try {
+      const result = await this.afAuth.auth.signInWithEmailAndPassword(
+        this.user.email,
+        this.user.password
+      );
+      if (result) {
+        this.nav.setRoot(HomePage);
+        window.localStorage.setItem("email", this.user.email);
+      } else {
+        const alert = this.alertCtrl.create({
+          title: "Fallo al iniciar sesión!",
+          subTitle: "Introduciste mal tu correo o contraseña",
+          buttons: ["Entendido"]
+        });
+        alert.present();
+      }
+    } catch (e) {
+      console.error(e);
+      const alert = this.alertCtrl.create({
+        title: "Fallo al iniciar sesión!",
+        subTitle: "Introduciste mal tu correo o contraseña",
+        buttons: ["Entendido"]
+      });
+      alert.present();
+    }
   }
-
-  forgotPass() {
-    let forgot = this.forgotCtrl.create({
-      title: 'Forgot Password?',
-      message: "Enter you email address to send a reset link password.",
-      inputs: [
-        {
-          name: 'email',
-          placeholder: 'Email',
-          type: 'email'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Send',
-          handler: data => {
-            console.log('Send clicked');
-            let toast = this.toastCtrl.create({
-              message: 'Email was sended successfully',
-              duration: 3000,
-              position: 'top',
-              cssClass: 'dark-trans',
-              closeButtonText: 'OK',
-              showCloseButton: true
-            });
-            toast.present();
-          }
-        }
-      ]
-    });
-    forgot.present();
-  }
-
 }

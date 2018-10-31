@@ -35,14 +35,14 @@ export class LocalWeatherPage {
       if (val != null) {
         this.location = JSON.parse(val);
 
-      } else {
+      } else{
         this.location = {
           state: 'MX',
           city: 'Mexico'
         }
       }
 
-      this.getWeather(this.location)
+      this.getWeather(this.location);
 
     });
 

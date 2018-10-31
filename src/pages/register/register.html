@@ -11,20 +11,15 @@
 
     <!-- Login form -->
     <form class="list-form">
-      <ion-item>
-        <ion-label floating>
-          <ion-icon name="person" item-start class="text-primary"></ion-icon>
-          Nombre completo
-        </ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
+      <ion-content>
 
+      </ion-content>
       <ion-item>
         <ion-label floating>
           <ion-icon name="mail" item-start class="text-primary"></ion-icon>
           Correo
         </ion-label>
-        <ion-input type="email"></ion-input>
+        <ion-input type="email" [(ngModel)]="user.email" name="user"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -32,12 +27,12 @@
           <ion-icon name="lock" item-start class="text-primary"></ion-icon>
           Contraseña
         </ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-input type="password" [(ngModel)]="user.password" name="user"></ion-input>
       </ion-item>
     </form>
 
     <div margin-top>
-      <button ion-button block color="dark" tappable (click)="register()">
+      <button ion-button block color="dark" tappable (click)="registro(user)">
         Registrarme
       </button>
     </div>

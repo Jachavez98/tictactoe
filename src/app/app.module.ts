@@ -1,3 +1,6 @@
+import {AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireModule } from 'angularfire2';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -28,6 +31,16 @@ import {ImcPage} from "../pages/imc/imc";
 
 // import pages
 // end import pages
+  var config = {
+    apiKey: "AIzaSyAdaz0pTh6yRto15A7-py1SiGBRmj-8D14",
+    authDomain: "tictactoe-f694d.firebaseapp.com",
+    databaseURL: "https://tictactoe-f694d.firebaseio.com",
+    projectId: "tictactoe-f694d",
+    storageBucket: "tictactoe-f694d.appspot.com",
+    messagingSenderId: "66571128686"
+  };
+
+
 
 @NgModule({
   declarations: [
@@ -48,6 +61,8 @@ import {ImcPage} from "../pages/imc/imc";
   imports: [
     BrowserModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(config),
+    AngularFireAuthModule,
     IonicModule.forRoot(MyApp, {
       scrollPadding: false,
       scrollAssist: true,
@@ -80,6 +95,7 @@ import {ImcPage} from "../pages/imc/imc";
     Keyboard,
     ActivityService,
     TripService,
+    AngularFireAuth,
     WeatherProvider,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
