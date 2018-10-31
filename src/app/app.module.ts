@@ -1,3 +1,4 @@
+import {AngularFireDatabaseModule } from 'angularfire2/database';
 import {AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireModule } from 'angularfire2';
@@ -63,6 +64,7 @@ import {ImcPage} from "../pages/imc/imc";
     HttpClientModule,
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
+    AngularFireDatabaseModule,
     IonicModule.forRoot(MyApp, {
       scrollPadding: false,
       scrollAssist: true,
