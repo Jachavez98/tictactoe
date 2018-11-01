@@ -27,15 +27,15 @@
 
 
 
-  <h1>Pesos generados</h1>
+  <h1>Registros de mi peso</h1>
   <ion-list>
     <ion-card>
-
+    	<strong>
         <ion-item  *ngFor="let item of todo | async" >
-           <ion-label>Peso: {{ item.peso }} </ion-label>
+           <ion-label>Peso: {{ item.peso }} Kg</ion-label>
            <ion-label>Fecha: {{ item.fecha}} </ion-label>
     </ion-item>
-
+    </strong>
     </ion-card>
   </ion-list>
   </ion-content>

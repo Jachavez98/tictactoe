@@ -16,11 +16,11 @@ export class LocalWeatherPage {
   }
 
   public locationList: Array<any> = [
-    {city: 'Monterrey', state: 'NL'},
-    {city: 'Guadalupe', state: 'MX'},
-    {city: 'Garcia', state: 'MX'},
-    {city: 'San Nicolas', state: 'MX'},
-    {city: 'Mexico', state: 'MX'}
+    {city: 'Montemorelos', state: 'MX'},
+    {city: 'Nuevo Leon', state: 'CE'},
+    {city: 'Nuevo Leon', state: 'Argentina'},
+    {city: 'Monterrey', state: 'MX'},
+    {city: 'Baja California', state: 'MX'}
   ]
 
   constructor(
@@ -30,33 +30,18 @@ export class LocalWeatherPage {
   }
 
   ionViewWillEnter() {
-
-    this.storage.get('location').then((val) => {
-      if (val != null) {
-        this.location = JSON.parse(val);
-
-      } else{
-        this.location = {
-          state: 'MX',
-          city: 'Mexico'
-        }
-      }
-
-      this.getWeather(this.location);
-
-    });
-
+      this.static();
   }
 
   public getWeather(location) {
-    if (typeof location === 'string') {
-      this.location = JSON.parse(location);
-      console.log(this.location);
-    } else {
       this.location = location;
-    }
-
     this.weatherProvider.getWeather(this.location.state, this.location.city).subscribe((weather: any) => {
+      this.weather = weather.current_observation;
+    });
+  }
+
+   public static() {
+    this.weatherProvider.climaestatico().subscribe((weather: any) => {
       this.weather = weather.current_observation;
     });
   }
