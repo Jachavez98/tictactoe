@@ -29,11 +29,13 @@
 
   <h1>Pesos generados</h1>
   <ion-list>
-<ion-item  *ngFor="let item of todo | async" >
-  <ion-card>
-      {{ item.peso }}
-      {{ item.fecha}}
-  </ion-card>
-</ion-item>
+    <ion-card>
+
+        <ion-item  *ngFor="let item of todo | async" >
+           <ion-label>Peso: {{ item.peso }} </ion-label>
+           <ion-label>Fecha: {{ item.fecha}} </ion-label>
+    </ion-item>
+
+    </ion-card>
   </ion-list>
   </ion-content>

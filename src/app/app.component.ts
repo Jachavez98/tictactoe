@@ -35,10 +35,8 @@ export class MyApp {
   ) {
     this.initializeApp();
     this.appMenuItems = [
-      {title: 'Inicio', component: HomePage, icon: 'home'},
-      {title: 'Calculo de mi IMC ideal', component: ImcPage, icon: 'partly-sunny'},
-      {title: 'Mis dietas', component: TripsPage, icon: 'partly-sunny'},
-      {title: 'Seguimiento de peso', component: PesoPage, icon: 'partly-sunny'},
+      {title: 'Calculo de mi IMC ideal', component: ImcPage, icon: 'body'},
+      {title: 'Seguimiento de peso', component: PesoPage, icon: 'bookmarks'},
       {title: 'Clima local', component: LocalWeatherPage, icon: 'partly-sunny'}
     ];
   }

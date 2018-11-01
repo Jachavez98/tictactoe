@@ -1,3 +1,4 @@
+import { ImcPage } from './../imc/imc';
 import { Component } from "@angular/core";
 import {
   NavController,
@@ -40,7 +41,7 @@ export class LoginPage {
         this.user.password
       );
       if (result) {
-        this.nav.setRoot(HomePage);
+        this.nav.setRoot(ImcPage);
         window.localStorage.setItem("email", this.user.email);
       } else {
         const alert = this.alertCtrl.create({
