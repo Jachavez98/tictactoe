@@ -6,7 +6,6 @@ import {
   ToastController,
   MenuController
 } from "ionic-angular";
-import { HomePage } from "../home/home";
 import { RegisterPage } from "../register/register";
 import { User } from './../../models/user';
 import { AngularFireAuth } from "@angular/fire/auth";

@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { WeatherProvider } from '../../services/weather';
-import { Storage } from '@ionic/storage';
-// import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'page-local-weather',
@@ -25,8 +23,7 @@ export class LocalWeatherPage {
 
   constructor(
     public navCtrl: NavController,
-    private weatherProvider: WeatherProvider,
-    private storage: Storage) {
+    private weatherProvider: WeatherProvider) {
   }
 
   ionViewWillEnter() {

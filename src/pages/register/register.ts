@@ -22,14 +22,14 @@ export class RegisterPage {
   // register and go to home page
   async registro(user: User){
     try {
-      const result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
+      const resultado = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
       const alert = this.alertCtrl.create({
         title: 'Cuenta creada!',
         subTitle: 'Se ha creado tu cuenta',
         buttons: ['Entendido']
       });
       alert.present();
-      console.log(result)
+      console.log(resultado)
     }
     catch (e){
       const alert = this.alertCtrl.create({

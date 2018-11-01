@@ -21,7 +21,6 @@ resultado:number;
   }
 
 calcularimc(){
-      const resultado = this.altura*this.peso;
       const alert = this.alertCtrl.create({
         title: 'Indice de masa corporal',
         subTitle: 'Tu indice de masa corporal es: '+(this.peso)/((this.altura/100)*(this.altura/100)),
