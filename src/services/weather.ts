@@ -9,10 +9,11 @@ export class WeatherProvider {
   apiKey = '1e4a0bdb251c64e4';
   url: string;
   queryNotFound: string;
-
+  estatico:string;
   constructor(public http: HttpClient) {
     console.log('Hello WeatherProvider Provider');
     this.url = 'http://api.wunderground.com/api/'+ this.apiKey +'/conditions/q/'
+    this.estatico='http://api.wunderground.com/api/1e4a0bdb251c64e4/conditions/q/zmw:00000.102.76695/.json'
   }
 
   getWeather(state, city): Observable<any> {
@@ -21,7 +22,13 @@ export class WeatherProvider {
       catchError(this.handleError)
     );
   }
-
+  //
+  climaestatico(): Observable<any> {
+    return this.http.get(this.estatico).pipe(
+      map(this.extractData),
+      catchError(this.handleError)
+    );
+  }
   // Private
   private extractData(res: Response) {
     let body = res;

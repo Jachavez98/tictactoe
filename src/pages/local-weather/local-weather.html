@@ -13,13 +13,6 @@
   <ion-card class="full-width" no-margin margin-bottom>
     <ion-card-content no-padding>
 
-      <ion-item>
-        <ion-label class="text-1x bold">Selecciona tu ubicacion</ion-label>
-        <ion-select [(ngModel)]="location" (ionChange)="getWeather(location)">
-          <ion-option *ngFor="let location of locationList" [value]="location">{{ location.city }}</ion-option>
-        </ion-select>
-      </ion-item>
-
     </ion-card-content>
   </ion-card>
 
@@ -43,13 +36,19 @@
                     <strong>Humedad relativa:</strong> {{weather.relative_humidity}}
                 </ion-item>
                  <ion-item>
-                    <strong>Dewpoint:</strong> {{weather.dewpoint_string}}
+                    <strong>Punto de rocio:</strong> {{weather.dewpoint_string}}
                 </ion-item>
                  <ion-item>
-                    <strong>Visibilidad:</strong> {{weather.visibility_km}}
+                    <strong>Visibilidad:</strong> {{weather.visibility_km}} Km
                 </ion-item>
                 <ion-item>
                     <strong>Indice de calor:</strong> {{weather.heat_index_string}}
+                </ion-item>
+                 <ion-item>
+                    <strong>Sensacion termica:</strong> {{weather.feelslike_c}} C
+                </ion-item>
+                <ion-item>
+                    <strong>Rafagas de viento de:</strong> {{weather.wind_kph}}Km/h
                 </ion-item>
 
             </ion-list>
