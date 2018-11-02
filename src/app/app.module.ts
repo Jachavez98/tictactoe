@@ -27,6 +27,7 @@ import {LocalWeatherPage} from "../pages/local-weather/local-weather";
 import {PesoPage} from "../pages/peso/peso";
 import {ImcPage} from "../pages/imc/imc";
 import {AngularFirestoreModule} from 'angularfire2/firestore';
+import { EjercicioPage } from "../pages/ejercicio/ejercicio";
 // import services
 // end import services
 // end import services
@@ -58,7 +59,8 @@ import {AngularFirestoreModule} from 'angularfire2/firestore';
     TripDetailPage,
     TripsPage,
     PesoPage,
-    ImcPage
+    ImcPage,
+    EjercicioPage
   ],
   imports: [
     BrowserModule,
@@ -91,7 +93,8 @@ import {AngularFirestoreModule} from 'angularfire2/firestore';
     TripDetailPage,
     TripsPage,
     PesoPage,
-    ImcPage
+    ImcPage,
+    EjercicioPage
   ],
   providers: [
     StatusBar,

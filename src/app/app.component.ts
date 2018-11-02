@@ -11,6 +11,7 @@ import { LocalWeatherPage } from "../pages/local-weather/local-weather";
 import { TripsPage } from "../pages/trips/trips";
 import { PesoPage } from './../pages/peso/peso';
 import { ImcPage } from "../pages/imc/imc";
+import { EjercicioPage } from "../pages/ejercicio/ejercicio";
 
 export interface MenuItem {
     title: string;
@@ -37,7 +38,8 @@ export class MyApp {
     this.appMenuItems = [
       {title: 'Calculo de mi IMC ideal', component: ImcPage, icon: 'body'},
       {title: 'Seguimiento de peso', component: PesoPage, icon: 'bookmarks'},
-      {title: 'Clima local', component: LocalWeatherPage, icon: 'partly-sunny'}
+      {title: 'Clima local', component: LocalWeatherPage, icon: 'partly-sunny'},
+      {title: 'Sesiones de ejercicio', component: EjercicioPage, icon: 'bicycle'}
     ];
   }
 
